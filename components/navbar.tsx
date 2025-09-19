@@ -13,7 +13,7 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-blue-600 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-blue-6000 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -21,8 +21,8 @@ export function Navbar() {
             <Image
               src="/images/netcom-logo.png"
               alt="Netcom Services"
-              width={1000}
-              height={400}
+              width={5000}
+              height={4000}
               className="h-10 w-auto"
             />
           </div>

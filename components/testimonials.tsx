@@ -128,13 +128,19 @@ export function Testimonials() {
   }, [itemsPerView])
 
   return (
-    <section className="py-20 px-4 bg-gray-100">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      className="py-20 px-4 relative bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/image.jpeg')" }}
+    >
+      {/* Background overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-wide drop-shadow-lg">
             CUSTOMER SATISFACTION IS IMPORTANT
           </h2>
-          <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-gray-100 text-lg max-w-4xl mx-auto leading-relaxed drop-shadow-md">
             We enjoy adapting our strategies to offer every client the best solutions that are at the forefront of the
             industry.
           </p>
@@ -148,7 +154,7 @@ export function Testimonials() {
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="flex-shrink-0 px-2" style={{ width: `${100 / itemsPerView}%` }}>
-                  <Card className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl">
+                  <Card className="h-full bg-white/95 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 border-0 rounded-2xl">
                     <CardContent className="p-8">
                       <div className="flex flex-col h-full">
                         <div className="flex items-center gap-4 mb-6">
@@ -175,14 +181,14 @@ export function Testimonials() {
           </div>
 
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 bg-white text-gray-600 hover:bg-gray-50 shadow-lg rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 bg-white/90 backdrop-blur-sm text-gray-700 hover:bg-white shadow-xl rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             onClick={prevSlide}
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
 
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 bg-white text-gray-600 hover:bg-gray-50 shadow-lg rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 bg-white/90 backdrop-blur-sm text-gray-700 hover:bg-white shadow-xl rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             onClick={nextSlide}
           >
             <ChevronRight className="h-6 w-6" />
@@ -194,7 +200,7 @@ export function Testimonials() {
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                Math.floor(currentIndex / itemsPerView) === index ? "bg-blue-600 scale-125" : "bg-gray-400"
+                Math.floor(currentIndex / itemsPerView) === index ? "bg-white scale-125" : "bg-white/50"
               }`}
               onClick={() => setCurrentIndex(index * itemsPerView)}
             />
@@ -206,7 +212,7 @@ export function Testimonials() {
             href="https://www.google.com/search?client=firefox-b-d&q=netcom+services+kochi#lrd=0x3b080d6ade467d97:0x25819822a80bc7e9,1,,,"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg text-lg"
+            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xl text-lg backdrop-blur-sm"
           >
             View On Google
           </a>

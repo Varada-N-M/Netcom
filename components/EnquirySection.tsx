@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react"
 import emailjs from "emailjs-com"
 import { useRef } from "react"
 
-export function EnquiryBox() {
+export function ContactSection() {
   // Contact details
   const address =
     "Netcom Service,CC 70/1174 A2 First floor, Mampilly centre, Peradoor Road, Kaloor Junction 682017"

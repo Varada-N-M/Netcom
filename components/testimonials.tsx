@@ -84,9 +84,9 @@ const testimonials: Testimonial[] = [
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className={`w-4 h-4 ${i < rating ? "fill-blue-400 text-blue-400" : "text-blue-200"}`} />
+        <Star key={i} className={`w-5 h-5 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`} />
       ))}
     </div>
   )
@@ -128,11 +128,13 @@ export function Testimonials() {
   }, [itemsPerView])
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-white">
+    <section className="py-20 px-4 bg-gray-100">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Customer Satisfaction is Important</h2>
-          <p className="text-blue-700 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 uppercase tracking-wide">
+            CUSTOMER SATISFACTION IS IMPORTANT
+          </h2>
+          <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
             We enjoy adapting our strategies to offer every client the best solutions that are at the forefront of the
             industry.
           </p>
@@ -141,29 +143,29 @@ export function Testimonials() {
         <div className="relative">
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-in-out gap-6"
+              className="flex transition-transform duration-500 ease-in-out gap-8"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
             >
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="flex-shrink-0" style={{ width: `${100 / itemsPerView}%` }}>
-                  <Card className="h-full bg-white border-blue-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <CardContent className="p-6">
+                <div key={testimonial.id} className="flex-shrink-0 px-2" style={{ width: `${100 / itemsPerView}%` }}>
+                  <Card className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl">
+                    <CardContent className="p-8">
                       <div className="flex flex-col h-full">
-                        <StarRating rating={testimonial.rating} />
-
-                        <blockquote className="text-blue-800 mt-4 flex-grow">"{testimonial.review}"</blockquote>
-
-                        <div className="mt-6 pt-4 border-t border-blue-100">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                              <span className="text-white font-semibold text-sm">{testimonial.name.charAt(0)}</span>
-                            </div>
-                            <div>
-                              <p className="font-semibold text-blue-900">{testimonial.name}</p>
-                              <p className="text-sm text-blue-600">Verified Customer</p>
-                            </div>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
+                          </div>
+                          <div>
+                            <p className="font-bold text-gray-900 text-lg">{testimonial.name}</p>
+                            <p className="text-gray-600 text-sm">Verified Customer</p>
                           </div>
                         </div>
+
+                        <StarRating rating={testimonial.rating} />
+
+                        <blockquote className="text-gray-700 text-base leading-relaxed italic flex-grow">
+                          "{testimonial.review}"
+                        </blockquote>
                       </div>
                     </CardContent>
                   </Card>
@@ -173,38 +175,38 @@ export function Testimonials() {
           </div>
 
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white border border-blue-200 text-blue-600 hover:bg-blue-50 shadow-lg rounded-md flex items-center justify-center transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 bg-white text-gray-600 hover:bg-gray-50 shadow-lg rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             onClick={prevSlide}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-6 w-6" />
           </button>
 
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white border border-blue-200 text-blue-600 hover:bg-blue-50 shadow-lg rounded-md flex items-center justify-center transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 bg-white text-gray-600 hover:bg-gray-50 shadow-lg rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             onClick={nextSlide}
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-6 w-6" />
           </button>
         </div>
 
-        <div className="flex justify-center mt-8 gap-2">
+        <div className="flex justify-center mt-12 gap-3">
           {Array.from({ length: Math.ceil(testimonials.length / itemsPerView) }).map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                Math.floor(currentIndex / itemsPerView) === index ? "bg-blue-600" : "bg-blue-200"
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                Math.floor(currentIndex / itemsPerView) === index ? "bg-blue-600 scale-125" : "bg-gray-400"
               }`}
               onClick={() => setCurrentIndex(index * itemsPerView)}
             />
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <a
             href="https://www.google.com/search?client=firefox-b-d&q=netcom+services+kochi#lrd=0x3b080d6ade467d97:0x25819822a80bc7e9,1,,,"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg text-lg"
           >
             View On Google
           </a>

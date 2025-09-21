@@ -33,19 +33,19 @@ const clients = [
 
 export function ClientList() {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gray-50 w-full">
+      <div className="w-full">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">OUR CLIENTS</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We are proud to serve a diverse range of clients across various industries, from government organizations to
-            private enterprises, delivering excellence in every project.
+            We are proud to serve a diverse range of clients across various industries, from government
+            organizations to private enterprises, delivering excellence in every project.
           </p>
         </div>
 
-        <div className="overflow-hidden bg-white rounded-lg shadow-sm py-8">
-          <div className="relative">
-            <div className="flex animate-scroll-icons whitespace-nowrap">
+        <div className="overflow-hidden bg-white rounded-lg shadow-sm py-8 w-full">
+          <div className="relative w-full">
+            <div className="flex animate-scroll-icons whitespace-nowrap w-full">
               {/* First set of client icons */}
               <div className="flex items-center space-x-12">
                 {clients.map((client, index) => (
